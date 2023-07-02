@@ -34,8 +34,8 @@
 }
 
 .image-container {
-    padding: 0.5em;
     border-bottom: var(--border-style);
+    padding: calc(var(--size) * 0.1) calc(var(--size) * 0.05);
 }
 
 .flipped {
