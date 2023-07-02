@@ -5,6 +5,17 @@
 
 <main>
     <div class="sidebar">
+        <div class="actions">
+            <button (click)="onSelectAll()">All</button>
+            <button (click)="onSelectNone()">None</button>
+        </div>
+
+        <div class="sizes">
+            <button *ngFor="let size of sizes" (click)="onChangeSize(size)">
+                {{ size }}
+            </button>
+        </div>
+
         <app-piece-list [pieces]="pieces">
         </app-piece-list>
     </div>
@@ -12,7 +23,7 @@
     <div class="layout">
         <div
             #piece
-            *ngFor="let piece of pieces; index as index"
+            *ngFor="let piece of piecesSortedBySize; index as index"
             class="piece-container size-{{ piece.size }}"
         >
             <div class="base"></div>

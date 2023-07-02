@@ -15,8 +15,6 @@ export class PieceListComponent {
     @Input()
     pieces: Piece[] = [];
 
-    sizes: string[] = ['small', 'medium', 'large'];
-
     isSelected(piece: Piece) {
         const index = this.pieces.indexOf(piece);
         if (index !== -1) {
@@ -25,22 +23,13 @@ export class PieceListComponent {
         }
     }
 
-    onChangeSize(size: string) {
-        for (let piece of this.pieces) {
-            if (this.isSelected(piece)) {
-                piece.size = size;
-            }
-        }
-        this.onSelectNone();
-    }
-
-    onSelectAll() {
+    selectAll() {
         for (let checkbox of this.checkboxes) {
             checkbox.nativeElement.checked = true;
         }
     }
 
-    onSelectNone() {
+    selectNone() {
         for (let checkbox of this.checkboxes) {
             checkbox.nativeElement.checked = undefined;
         }

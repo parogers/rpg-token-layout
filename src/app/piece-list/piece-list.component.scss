@@ -34,24 +34,3 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked + .image-container {
     border-color: black;
 }
-
-.sizes {
-    margin-bottom: 0.5em;
-
-    button {
-        display: block;
-        width: 100%;
-        padding: 0.5em;
-    }
-}
-
-.actions {
-    margin-bottom: 0.5em;
-    display: flex;
-
-    button {
-        flex-grow: 1;
-        flex-basis: 50%;
-        padding: 0.5em;
-    }
-}

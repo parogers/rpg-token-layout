@@ -11,7 +11,6 @@
     // display: flex;
     // align-items: start;
     // flex-wrap: wrap;
-    margin-left: 1em;
     width: calc(10in - 5px);
     flex-grow: 0;
     // height: calc(7.5in - 5px);
@@ -65,8 +64,30 @@ main {
 .sidebar {
     flex-shrink: 1;
     background: lightgray;
+    margin-right: 1em;
 }
 
 .upload-area {
     margin: 0.5em;
+}
+
+.sizes {
+    margin-bottom: 0.5em;
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+    }
+}
+
+.actions {
+    margin-bottom: 0.5em;
+    display: flex;
+
+    button {
+        flex-grow: 1;
+        flex-basis: 50%;
+        padding: 0.5em;
+    }
 }
