@@ -1,0 +1,57 @@
+
+:host {
+    display: block;
+}
+
+ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0.5em;
+}
+
+img {
+    display: block;
+    width: 5em;
+    image-rendering: pixelated;
+    background: white;
+}
+
+.image-container {
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: transparent;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .image-container {
+    border-color: black;
+}
+
+.sizes {
+    margin-bottom: 0.5em;
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+    }
+}
+
+.actions {
+    margin-bottom: 0.5em;
+    display: flex;
+
+    button {
+        flex-grow: 1;
+        flex-basis: 50%;
+        padding: 0.5em;
+    }
+}

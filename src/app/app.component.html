@@ -1,18 +1,28 @@
-<input type="file" accept="image/*" multiple (change)="onChange($event.target)"/>
 
-<div class="layout">
-    <div
-        #piece
-        *ngFor="let piece of pieces; index as index"
-        class="piece-container size-{{ piece.size }}"
-    >
-        <div class="base"></div>
-        <div class="image-container flipped">
-            <img src="{{ piece.imageURL }}">
-        </div>
-        <div class="image-container">
-            <img src="{{ piece.imageURL }}">
-        </div>
-        <div class="base"></div>
-    </div>
+<div class="upload-area">
+    <input type="file" accept="image/*" multiple (change)="onChange($event.target)"/>
 </div>
+
+<main>
+    <div class="sidebar">
+        <app-piece-list [pieces]="pieces">
+        </app-piece-list>
+    </div>
+
+    <div class="layout">
+        <div
+            #piece
+            *ngFor="let piece of pieces; index as index"
+            class="piece-container size-{{ piece.size }}"
+        >
+            <div class="base"></div>
+            <div class="image-container flipped">
+                <img src="{{ piece.imageURL }}">
+            </div>
+            <div class="image-container">
+                <img src="{{ piece.imageURL }}">
+            </div>
+            <div class="base"></div>
+        </div>
+    </div>
+</main>

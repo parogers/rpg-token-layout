@@ -1,0 +1,21 @@
+<div class="actions">
+    <button (click)="onSelectAll()">All</button>
+    <button (click)="onSelectNone()">None</button>
+</div>
+
+<div class="sizes">
+    <button *ngFor="let size of sizes" (click)="onChangeSize(size)">
+        {{ size }}
+    </button>
+</div>
+
+<ul>
+    <li *ngFor="let piece of pieces">
+        <label>
+            <input type="checkbox" #checkbox>
+            <div class="image-container">
+                <img src="{{ piece.imageURL }}">
+            </div>
+        </label>
+    </li>
+</ul>

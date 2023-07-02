@@ -6,7 +6,7 @@ body {
 }
 
 @media print {
-    app-root > * {
+    app-root > *, app-root .sidebar {
         display: none;
     }
 

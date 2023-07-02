@@ -1,11 +1,8 @@
 import { Component, ViewChildren } from '@angular/core';
 
-import { DEMO_IMAGES } from './demo';
+import { Piece } from './piece';
 
-interface Piece {
-    imageURL: string;
-    size: string;
-}
+import { DEMO_IMAGES } from './demo';
 
 @Component({
     selector: 'app-root',
@@ -17,6 +14,42 @@ export class AppComponent {
     // pieceElements: any;
 
     pieces: Piece[] = [
+        {
+            imageURL: DEMO_IMAGES[0],
+            size: 'medium',
+        },
+        {
+            imageURL: DEMO_IMAGES[1],
+            size: 'large',
+        },
+        {
+            imageURL: DEMO_IMAGES[2],
+            size: 'medium',
+        },
+        {
+            imageURL: DEMO_IMAGES[0],
+            size: 'medium',
+        },
+        {
+            imageURL: DEMO_IMAGES[1],
+            size: 'large',
+        },
+        {
+            imageURL: DEMO_IMAGES[2],
+            size: 'medium',
+        },
+        {
+            imageURL: DEMO_IMAGES[0],
+            size: 'medium',
+        },
+        {
+            imageURL: DEMO_IMAGES[1],
+            size: 'large',
+        },
+        {
+            imageURL: DEMO_IMAGES[2],
+            size: 'medium',
+        },
         {
             imageURL: DEMO_IMAGES[0],
             size: 'medium',
