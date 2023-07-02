@@ -3,6 +3,8 @@
         #piece
         *ngFor="let piece of pieces; index as index"
         class="piece-container size-{{ piece.size }}"
+        [class.selected]="isSelected(piece)"
+        (click)="onClick(piece)"
     >
         <div class="base"></div>
         <div class="image-container flipped">

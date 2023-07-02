@@ -2,7 +2,7 @@ import { Component, ViewChildren, ViewChild } from '@angular/core';
 
 import { Piece, sortedBySize, PIECE_SIZES } from './piece';
 
-import { PieceListComponent } from './piece-list/piece-list.component';
+import { PieceLayoutComponent } from './piece-layout/piece-layout.component';
 
 @Component({
     selector: 'app-root',
@@ -10,8 +10,8 @@ import { PieceListComponent } from './piece-list/piece-list.component';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    @ViewChild(PieceListComponent)
-    pieceListComponent: any;
+    @ViewChild(PieceLayoutComponent)
+    pieceLayoutComponent: any;
 
     pieces: Piece[] = []
     piecesSortedBySize: Piece[] = sortedBySize(this.pieces);
@@ -44,20 +44,24 @@ export class AppComponent {
     }
 
     onSelectAll() {
-        this.pieceListComponent.selectAll();
+        this.pieceLayoutComponent.selectAll();
     }
 
     onSelectNone() {
-        this.pieceListComponent.selectNone();
+        this.pieceLayoutComponent.selectNone();
     }
 
     onChangeSize(size: string) {
         for (let piece of this.pieces) {
-            if (this.pieceListComponent.isSelected(piece)) {
+            if (this.pieceLayoutComponent.isSelected(piece)) {
                 piece.size = size;
             }
         }
         this.onSelectNone();
         this.piecesSortedBySize = sortedBySize(this.pieces);
+    }
+
+    get hasSelection(): boolean {
+        return this.pieceLayoutComponent && this.pieceLayoutComponent.hasSelected;
     }
 }

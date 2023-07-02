@@ -11,13 +11,17 @@
         </div>
 
         <div class="sizes">
-            <button *ngFor="let size of sizes" (click)="onChangeSize(size)">
+            <button
+                *ngFor="let size of sizes"
+                (click)="onChangeSize(size)"
+                [disabled]="!hasSelection"
+            >
                 {{ size }}
             </button>
         </div>
 
-        <app-piece-list [pieces]="pieces">
-        </app-piece-list>
+        <!-- <app-piece-list [pieces]="pieces">
+        </app-piece-list> -->
     </div>
 
     <app-piece-layout [pieces]="piecesSortedBySize">
