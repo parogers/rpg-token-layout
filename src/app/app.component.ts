@@ -8,7 +8,16 @@ function sortedBySize(pieces: Piece[]): Piece[] {
     return pieces.slice().sort((p1, p2) => {
         const index1 = PIECE_SIZES.indexOf(p1.size);
         const index2 = PIECE_SIZES.indexOf(p2.size);
-        return index2 - index1;
+        if (index1 !== index2) {
+            return index2 - index1;
+        }
+        if (p1.fileName < p2.fileName) {
+            return -1;
+        }
+        if (p1.fileName > p2.fileName) {
+            return 1;
+        }
+        return 0;
     });
 }
 
@@ -26,12 +35,6 @@ export class AppComponent {
 
     sizes = PIECE_SIZES;
 
-    ngAfterViewInit() {
-        // this.pieceElements.changes.subscribe(() => {
-        //     console.log(this.pieceElements);
-        // });
-    }
-
     onChange(input: any) {
         function getDefaultSize(file: File): string {
             for (let size of PIECE_SIZES) {
@@ -47,9 +50,9 @@ export class AppComponent {
             return;
         }
         this.pieces = Array.from(files).map((file: File) => {
-            const image = URL.createObjectURL(file);
             return {
-                imageURL: image,
+                fileName: file.name,
+                imageURL: URL.createObjectURL(file),
                 size: getDefaultSize(file),
             };
         });
