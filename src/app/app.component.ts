@@ -14,7 +14,6 @@ export class AppComponent {
     pieceLayoutComponent: any;
 
     pieces: Piece[] = []
-    piecesSortedBySize: Piece[] = sortedBySize(this.pieces);
 
     sizes = PIECE_SIZES;
 
@@ -40,7 +39,6 @@ export class AppComponent {
                 size: getDefaultSize(file),
             };
         });
-        this.piecesSortedBySize = sortedBySize(this.pieces);
     }
 
     onSelectAll() {
@@ -58,10 +56,13 @@ export class AppComponent {
             }
         }
         this.onSelectNone();
-        this.piecesSortedBySize = sortedBySize(this.pieces);
     }
 
     get hasSelection(): boolean {
         return this.pieceLayoutComponent && this.pieceLayoutComponent.hasSelected;
+    }
+
+    onReorder() {
+        this.pieces = sortedBySize(this.pieces);
     }
 }
