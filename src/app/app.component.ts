@@ -1,25 +1,8 @@
 import { Component, ViewChildren, ViewChild } from '@angular/core';
 
-import { Piece, PIECE_SIZES } from './piece';
+import { Piece, sortedBySize, PIECE_SIZES } from './piece';
 
 import { PieceListComponent } from './piece-list/piece-list.component';
-
-function sortedBySize(pieces: Piece[]): Piece[] {
-    return pieces.slice().sort((p1, p2) => {
-        const index1 = PIECE_SIZES.indexOf(p1.size);
-        const index2 = PIECE_SIZES.indexOf(p2.size);
-        if (index1 !== index2) {
-            return index2 - index1;
-        }
-        if (p1.fileName < p2.fileName) {
-            return -1;
-        }
-        if (p1.fileName > p2.fileName) {
-            return 1;
-        }
-        return 0;
-    });
-}
 
 @Component({
     selector: 'app-root',
@@ -35,10 +18,11 @@ export class AppComponent {
 
     sizes = PIECE_SIZES;
 
-    onChange(input: any) {
+    onChange(input: any)
+    {
         function getDefaultSize(file: File): string {
             for (let size of PIECE_SIZES) {
-                if (file.name.indexOf(size) !== -1) {
+                if (file.name.indexOf(size.toUpperCase()) !== -1) {
                     return size;
                 }
             }

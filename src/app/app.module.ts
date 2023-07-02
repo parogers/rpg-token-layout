@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PieceListComponent } from './piece-list/piece-list.component';
+import { PieceLayoutComponent } from './piece-layout/piece-layout.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        PieceListComponent
+        PieceListComponent,
+        PieceLayoutComponent
     ],
     imports: [
         BrowserModule

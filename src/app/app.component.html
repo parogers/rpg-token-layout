@@ -20,20 +20,6 @@
         </app-piece-list>
     </div>
 
-    <div class="layout">
-        <div
-            #piece
-            *ngFor="let piece of piecesSortedBySize; index as index"
-            class="piece-container size-{{ piece.size }}"
-        >
-            <div class="base"></div>
-            <div class="image-container flipped">
-                <img src="{{ piece.imageURL }}">
-            </div>
-            <div class="image-container">
-                <img src="{{ piece.imageURL }}">
-            </div>
-            <div class="base"></div>
-        </div>
-    </div>
+    <app-piece-layout [pieces]="piecesSortedBySize">
+    </app-piece-layout>
 </main>
