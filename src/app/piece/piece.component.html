@@ -1,0 +1,13 @@
+<div
+    *ngIf="piece"
+    class="piece-container size-{{ piece.size }}"
+>
+    <div class="base"></div>
+    <div class="image-container flipped">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="base"></div>
+</div>

@@ -1,18 +1,9 @@
 <div class="layout">
-    <div
+    <app-piece
         #piece
         *ngFor="let piece of pieces; index as index"
-        class="piece-container size-{{ piece.size }}"
+        [piece]="piece"
         [class.selected]="isSelected(piece)"
         (click)="onClick(piece)"
-    >
-        <div class="base"></div>
-        <div class="image-container flipped">
-            <img src="{{ piece.imageURL }}">
-        </div>
-        <div class="image-container">
-            <img src="{{ piece.imageURL }}">
-        </div>
-        <div class="base"></div>
-    </div>
+    ></app-piece>
 </div>
