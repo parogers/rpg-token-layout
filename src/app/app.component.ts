@@ -39,6 +39,7 @@ export class AppComponent {
                 size: getDefaultSize(file),
             };
         });
+        this.onReorder();
     }
 
     onSelectAll() {
@@ -50,10 +51,8 @@ export class AppComponent {
     }
 
     onChangeSize(size: string) {
-        for (let piece of this.pieces) {
-            if (this.pieceLayoutComponent.isSelected(piece)) {
-                piece.size = size;
-            }
+        for (let piece of this.pieceLayoutComponent.selectedPieces) {
+            piece.size = size;
         }
         this.onSelectNone();
     }
@@ -64,5 +63,16 @@ export class AppComponent {
 
     onReorder() {
         this.pieces = sortedBySize(this.pieces);
+    }
+
+    onDuplicate() {
+        for (let piece of this.pieceLayoutComponent.selectedPieces) {
+            const index = this.pieces.indexOf(piece);
+            this.pieces.splice(index, 0, {
+                fileName: piece.fileName,
+                imageURL: piece.imageURL,
+                size: piece.size,
+            });
+        }
     }
 }

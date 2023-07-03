@@ -18,6 +18,14 @@ export class PieceLayoutComponent {
         return Object.keys(this.selected).length > 0;
     }
 
+    get selectedPieces(): Piece[] {
+        return Object.keys(this.selected).filter((index) => {
+            return !!this.selected[index];
+        }).map((index) => {
+            return this.pieces[+index];
+        });
+    }
+
     ngOnChanges(changes: SimpleChanges) {
         if (changes['pieces']) {
             this.selectNone();

@@ -10,8 +10,6 @@
             <button (click)="onSelectNone()">None</button>
         </div>
 
-        <button (click)="onReorder()">Reorder</button>
-
         <div class="size-actions">
             <button
                 *ngFor="let size of sizes"
@@ -21,6 +19,15 @@
                 {{ size }}
             </button>
         </div>
+
+        <button (click)="onReorder()">Reorder</button>
+
+        <button
+            (click)="onDuplicate()"
+            [disabled]="!hasSelection"
+        >
+            Duplicate
+        </button>
 
         <!-- <app-piece-list [pieces]="pieces">
         </app-piece-list> -->
