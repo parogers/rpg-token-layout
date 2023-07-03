@@ -81,7 +81,7 @@ export class AppComponent {
         for (let piece of this.pieceLayoutComponent.selectedPieces) {
             piece.size = size;
         }
-        this.onSelectNone();
+        // this.onSelectNone();
     }
 
     get hasSelection(): boolean {

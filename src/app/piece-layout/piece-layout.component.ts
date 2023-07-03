@@ -47,8 +47,13 @@ export class PieceLayoutComponent {
         return !!this.selected[index];
     }
 
-    onClick(piece: Piece) {
+    onClick(event: Event, piece: Piece) {
         const index = this.pieces.indexOf(piece);
         this.selected[index] = !this.selected[index];
+        event.stopPropagation();
+    }
+
+    onLayoutClick() {
+        this.selectNone();
     }
 }

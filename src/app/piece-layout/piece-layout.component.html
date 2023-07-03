@@ -1,9 +1,9 @@
-<div class="layout">
+<div class="layout" (click)="onLayoutClick()">
     <app-piece
         #piece
         *ngFor="let piece of pieces; index as index"
         [piece]="piece"
         [class.selected]="isSelected(piece)"
-        (click)="onClick(piece)"
+        (click)="onClick($event, piece)"
     ></app-piece>
 </div>
