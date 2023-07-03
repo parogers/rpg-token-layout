@@ -1,11 +1,52 @@
 <div
-    *ngIf="piece"
+    *ngIf="piece && isStandType"
     class="piece-container size-{{ piece.size }}"
 >
     <div class="base"></div>
     <div class="image-container flipped">
         <img src="{{ piece.imageURL }}">
     </div>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="base"></div>
+</div>
+
+<div
+    *ngIf="piece && isFlatType"
+    class="piece-container size-{{ piece.size }}"
+>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+</div>
+
+<div
+    *ngIf="piece && isBlockType"
+    class="piece-container size-{{ piece.size }} block-type"
+>
+    <div class="base">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="image-container flipped">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="base">
+        <img src="{{ piece.imageURL }}">
+    </div>
+</div>
+
+<div
+    *ngIf="piece && isBoxType"
+    class="piece-container size-{{ piece.size }} box-type"
+>
+    <div class="base"></div>
     <div class="image-container">
         <img src="{{ piece.imageURL }}">
     </div>

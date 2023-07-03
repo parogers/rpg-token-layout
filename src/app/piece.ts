@@ -1,8 +1,16 @@
 
+export enum PieceType {
+    Stand='stand',
+    Flat='flat',
+    Box='box',
+    Block='block',
+}
+
 export interface Piece {
     fileName: string;
     imageURL: string;
     size: string;
+    type: PieceType;
 }
 
 export type PieceRef = Piece | null;

@@ -20,6 +20,16 @@
             </button>
         </div>
 
+        <div class="size-actions">
+            <button
+                *ngFor="let type of types"
+                (click)="onChangeType(type)"
+                [disabled]="!hasSelection"
+            >
+                {{ type }}
+            </button>
+        </div>
+
         <button (click)="onReorder()">Reorder</button>
 
         <button
