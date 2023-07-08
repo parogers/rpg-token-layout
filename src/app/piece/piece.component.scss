@@ -38,6 +38,7 @@
 }
 
 .box-type .image-container {
+    --horizontal-padding: 0;
     --vertical-padding: 0;
     border-top: var(--border-style);
     position: relative;

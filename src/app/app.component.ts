@@ -4,6 +4,13 @@ import { PieceType, Piece, sortedBySize, PIECE_SIZES } from './piece';
 
 import { PieceLayoutComponent } from './piece-layout/piece-layout.component';
 
+const PIECE_TYPES = [
+    PieceType.Stand,
+    PieceType.Flat,
+    PieceType.Box,
+    PieceType.Block,
+];
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -35,16 +42,18 @@ export class AppComponent {
     // ];
 
     sizes = PIECE_SIZES;
-
-    types = [
-        PieceType.Stand,
-        PieceType.Flat,
-        PieceType.Box,
-        PieceType.Block,
-    ];
+    types = PIECE_TYPES;
 
     onChange(input: any)
     {
+        function getDefaultType(file: File): PieceType {
+            for (let type of PIECE_TYPES) {
+                if (file.name.indexOf(type.toUpperCase()) !== -1) {
+                    return type;
+                }
+            }
+            return PieceType.Stand;
+        }
         function getDefaultSize(file: File): string {
             for (let size of PIECE_SIZES) {
                 if (file.name.indexOf(size.toUpperCase()) !== -1) {
@@ -63,7 +72,7 @@ export class AppComponent {
                 fileName: file.name,
                 imageURL: URL.createObjectURL(file),
                 size: getDefaultSize(file),
-                type: PieceType.Stand,
+                type: getDefaultType(file),
             };
         });
         this.onReorder();
