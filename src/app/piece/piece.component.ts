@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 
 import { PieceRef, PieceType } from '../piece';
 
@@ -10,6 +10,8 @@ import { PieceRef, PieceType } from '../piece';
 export class PieceComponent {
     @Input()
     piece: PieceRef = null;
+
+    constructor(private elementRef: ElementRef) {}
 
     get isStandType(): boolean {
         return !!(this.piece && this.piece.type === PieceType.Stand);
@@ -25,5 +27,14 @@ export class PieceComponent {
 
     get isBoxType(): boolean {
         return !!(this.piece && this.piece.type === PieceType.Box);
+    }
+
+    onImageLoad() {
+        const maxHeight = 8*96;
+        const rect = this.elementRef.nativeElement.getBoundingClientRect();
+        if (rect.height > maxHeight) {
+            console.log('piece is too tall');
+        }
+        console.log(rect.height);
     }
 }

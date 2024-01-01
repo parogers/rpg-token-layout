@@ -15,7 +15,7 @@ export interface Piece {
 
 export type PieceRef = Piece | null;
 
-export const PIECE_SIZES: string[] = ['small', 'medium', 'large'];
+export const PIECE_SIZES: string[] = ['small', 'medium', 'medium-plus', 'medium-minus', 'large', 'large-plus', 'huge'];
 
 export function sortedBySize(pieces: Piece[]): Piece[] {
     return pieces.slice().sort((p1, p2) => {

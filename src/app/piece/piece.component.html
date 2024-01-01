@@ -4,7 +4,7 @@
 >
     <div class="base"></div>
     <div class="image-container flipped">
-        <img src="{{ piece.imageURL }}">
+        <img src="{{ piece.imageURL }}" (load)="onImageLoad()">
     </div>
     <div class="image-container">
         <img src="{{ piece.imageURL }}">
@@ -14,7 +14,7 @@
 
 <div
     *ngIf="piece && isFlatType"
-    class="piece-container size-{{ piece.size }}"
+    class="piece-container size-{{ piece.size }} flat-type"
 >
     <div class="image-container">
         <img src="{{ piece.imageURL }}">

@@ -1,6 +1,13 @@
 
 :host {
     display: inline-block;
+    --size-small: 0.5in;
+    --size-medium-minus: 0.65in;
+    --size-medium: 0.8in;
+    --size-medium-plus: 1in;
+    --size-large: 1.75in;
+    --size-large-plus: 2in;
+    --size-huge: 2.75in;
 }
 
 .piece-container {
@@ -17,8 +24,24 @@
         --size: var(--size-medium);
     }
 
+    &.size-medium-plus {
+        --size: var(--size-medium-plus);
+    }
+
+    &.size-medium-minus {
+        --size: var(--size-medium-minus);
+    }
+
     &.size-large {
         --size: var(--size-large);
+    }
+
+    &.size-large-plus {
+        --size: var(--size-large-plus);
+    }
+
+    &.size-huge {
+        --size: var(--size-huge);
     }
 }
 
@@ -26,11 +49,20 @@
     height: var(--size);
 }
 
+.size-huge .base {
+    height: calc(var(--size) / 2);
+}
+
 .image-container {
     --vertical-padding: calc(var(--size) * 0.1);
     --horizontal-padding: calc(var(--size) * 0.05);
     border-bottom: var(--border-style);
     padding: var(--vertical-padding) var(--horizontal-padding);
+}
+
+.flat-type .image-container {
+    --horizontal-padding: 0;
+    --vertical-padding: 0;
 }
 
 .block-type .image-container {
