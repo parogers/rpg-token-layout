@@ -13,6 +13,21 @@
 </div>
 
 <div
+    *ngIf="piece && isInsertType"
+    class="piece-container size-{{ piece.size }}"
+>
+    <div class="insert-base"></div>
+    <div class="image-container flipped">
+        <img src="{{ piece.imageURL }}" (load)="onImageLoad()">
+    </div>
+    <div class="image-container">
+        <img src="{{ piece.imageURL }}">
+    </div>
+    <div class="insert-base"></div>
+    <div class="insert-base"></div>
+</div>
+
+<div
     *ngIf="piece && isFlatType"
     class="piece-container size-{{ piece.size }} flat-type"
 >

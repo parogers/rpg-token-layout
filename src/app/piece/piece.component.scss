@@ -49,6 +49,10 @@
     height: var(--size);
 }
 
+.insert-base {
+    height: 0.125in;
+}
+
 .size-huge .base {
     height: calc(var(--size) / 2);
 }

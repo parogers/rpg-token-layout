@@ -9,6 +9,7 @@ const PIECE_TYPES = [
     PieceType.Flat,
     PieceType.Box,
     PieceType.Block,
+    PieceType.Insert,
 ];
 
 @Component({

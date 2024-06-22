@@ -4,6 +4,7 @@ export enum PieceType {
     Flat='flat',
     Box='box',
     Block='block',
+    Insert='insert',
 }
 
 export interface Piece {

@@ -13,6 +13,10 @@ export class PieceComponent {
 
     constructor(private elementRef: ElementRef) {}
 
+    get isInsertType(): boolean {
+        return !!(this.piece && this.piece.type == PieceType.Insert);
+    }
+
     get isStandType(): boolean {
         return !!(this.piece && this.piece.type === PieceType.Stand);
     }
