@@ -1,6 +1,6 @@
 
 <div class="upload-area">
-    <input type="file" accept="image/*" multiple (change)="onChange($event.target)"/>
+    <input type="file" accept="image/*" multiple (change)="onLoad($event.target)"/>
 </div>
 
 <main>
@@ -38,6 +38,8 @@
         >
             Duplicate
         </button>
+
+        <button (click)="onRemoveAll()">Remove all</button>
 
         <!-- <app-piece-list [pieces]="pieces">
         </app-piece-list> -->

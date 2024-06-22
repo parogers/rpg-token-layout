@@ -44,7 +44,7 @@ export class AppComponent {
     sizes = PIECE_SIZES;
     types = PIECE_TYPES;
 
-    onChange(input: any)
+    onLoad(input: any)
     {
         function getDefaultType(file: File): PieceType {
             for (let type of PIECE_TYPES) {
@@ -67,7 +67,7 @@ export class AppComponent {
         if (!files) {
             return;
         }
-        this.pieces = Array.from(files).map((file: File) => {
+        const newPieces = Array.from(files).map((file: File) => {
             return {
                 fileName: file.name,
                 imageURL: URL.createObjectURL(file),
@@ -75,6 +75,7 @@ export class AppComponent {
                 type: getDefaultType(file),
             };
         });
+        this.pieces = this.pieces.concat(newPieces);
         this.onReorder();
     }
 
@@ -117,5 +118,9 @@ export class AppComponent {
         for (let piece of this.pieceLayoutComponent.selectedPieces) {
             piece.type = type;
         }
+    }
+
+    onRemoveAll() {
+        this.pieces = [];
     }
 }
