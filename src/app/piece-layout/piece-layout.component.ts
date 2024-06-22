@@ -15,7 +15,7 @@ export class PieceLayoutComponent {
 
     get hasSelected(): boolean {
         // TODO - cache
-        return Object.keys(this.selected).length > 0;
+        return Object.values(this.selected).some((value) => !!value);
     }
 
     get selectedPieces(): Piece[] {
