@@ -1,11 +1,17 @@
+
 import { Component, Input, SimpleChanges } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
+
+import { PieceComponent } from '../piece/piece.component';
 
 import { Piece } from '../piece';
 
 @Component({
     selector: 'app-piece-layout',
     templateUrl: './piece-layout.component.html',
-    styleUrls: ['./piece-layout.component.scss']
+    styleUrls: ['./piece-layout.component.scss'],
+    imports: [CommonModule, PieceComponent],
 })
 export class PieceLayoutComponent {
     @Input()

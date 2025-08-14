@@ -1,4 +1,7 @@
+
 import { Component, ViewChildren, ViewChild } from '@angular/core';
+
+import { CommonModule } from '@angular/common';
 
 import { PieceType, Piece, sortedBySize, PIECE_SIZES } from './piece';
 
@@ -15,7 +18,8 @@ const PIECE_TYPES = [
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    imports: [CommonModule, PieceLayoutComponent],
 })
 export class AppComponent {
     @ViewChild(PieceLayoutComponent)

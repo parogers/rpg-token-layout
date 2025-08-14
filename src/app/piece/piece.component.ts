@@ -1,11 +1,14 @@
 import { Component, Input, ElementRef } from '@angular/core';
 
+import { CommonModule } from '@angular/common';
+
 import { PieceRef, PieceType } from '../piece';
 
 @Component({
     selector: 'app-piece',
     templateUrl: './piece.component.html',
-    styleUrls: ['./piece.component.scss']
+    styleUrls: ['./piece.component.scss'],
+    imports: [CommonModule],
 })
 export class PieceComponent {
     @Input()
