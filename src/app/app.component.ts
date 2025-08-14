@@ -121,6 +121,13 @@ export class AppComponent {
         }
     }
 
+    onRemoveSelected() {
+        const selected = this.pieceLayoutComponent.selectedPieces;
+        this.pieces = this.pieces.filter((piece) => {
+            return !selected.includes(piece);
+        });
+    }
+
     onRemoveAll() {
         this.pieces = [];
     }
