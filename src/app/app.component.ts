@@ -105,6 +105,7 @@ export class AppComponent {
 
     onReorder() {
         this.pieces = sortedBySize(this.pieces);
+        this.pieceLayoutComponent.selectNone();
     }
 
     onDuplicate() {
