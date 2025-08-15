@@ -143,6 +143,8 @@ export class AppComponent {
     onKey(event: KeyboardEvent) {
         if (event.key === 'Delete') {
             this.onRemoveSelected();
+        } else if (event.key == 'a' && event.ctrlKey) {
+            this.onSelectAll();
         }
     }
 }
