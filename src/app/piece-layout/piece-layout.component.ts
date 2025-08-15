@@ -12,11 +12,15 @@ import { Piece } from '../piece';
     templateUrl: './piece-layout.component.html',
     styleUrls: ['./piece-layout.component.scss'],
     imports: [CommonModule, PieceComponent],
+    host: {
+        '(click)': 'onLayoutClick()',
+    },
 })
 export class PieceLayoutComponent {
     @Input()
     pieces: Piece[] = [];
 
+    lastSelectedIndex = -1;
     selected: { [index: string]: boolean } = {};
 
     get hasSelected(): boolean {
@@ -46,6 +50,7 @@ export class PieceLayoutComponent {
 
     selectNone() {
         this.selected = {};
+        this.lastSelectedIndex = -1;
     }
 
     isSelected(piece: Piece): boolean {
@@ -53,9 +58,27 @@ export class PieceLayoutComponent {
         return !!this.selected[index];
     }
 
-    onClick(event: Event, piece: Piece) {
+    onClick(event: MouseEvent, piece: Piece) {
         const index = this.pieces.indexOf(piece);
-        this.selected[index] = !this.selected[index];
+        if (event.shiftKey) {
+            // Selecting a range
+            if (this.lastSelectedIndex === -1) {
+                this.lastSelectedIndex = index;
+            }
+            const start = Math.min(index, this.lastSelectedIndex);
+            const end = Math.max(index, this.lastSelectedIndex);
+            for (let n = start; n <= end; n++) {
+                this.selected[n] = true;
+            }
+        } else if (event.ctrlKey) {
+            // Adding one piece to the selection
+            this.selected[index] = !this.selected[index];
+        } else {
+            // Selecting a single piece
+            this.selected = {}
+            this.selected[index] = true;
+        }
+        this.lastSelectedIndex = index;
         event.stopPropagation();
     }
 
