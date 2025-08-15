@@ -128,6 +128,10 @@ export class AppComponent {
         return this.pieceLayoutComponent && this.pieceLayoutComponent.hasSelected;
     }
 
+    get hasPieces(): boolean {
+        return this.pieces.length > 0;
+    }
+
     onReorder() {
         this.pieces = sortedBySize(this.pieces);
         this.pieceLayoutComponent.selectNone();
@@ -160,8 +164,10 @@ export class AppComponent {
     }
 
     onRemoveAll() {
-        this.pieces = [];
-        this.onSelectNone();
+        if (confirm('Are you sure you want to remove all pieces?')) {
+            this.pieces = [];
+            this.onSelectNone();
+        }
     }
 
     @HostListener('document:keydown', ['$event'])

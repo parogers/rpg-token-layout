@@ -6,11 +6,17 @@
 <main>
     <div class="sidebar">
         <div class="selection-actions">
-            <button (click)="onSelectAll()">All</button>
-            <button (click)="onSelectNone()">None</button>
+            <button (click)="onSelectAll()" [disabled]="!hasPieces">
+                All
+            </button>
+            <button (click)="onSelectNone()" [disabled]="!hasPieces">
+                None
+            </button>
         </div>
 
-        <button (click)="onReorder()">Reorder</button>
+        <button (click)="onReorder()" [disabled]="!hasPieces">
+            Reorder
+        </button>
 
         <button
             (click)="onDuplicate()"
@@ -23,7 +29,9 @@
             Remove
         </button>
 
-        <button (click)="onRemoveAll()">Remove all</button>
+        <button (click)="onRemoveAll()" [disabled]="!hasPieces">
+            Remove all
+        </button>
 
         <div class="size-actions">
             <label for="size">Size</label>
