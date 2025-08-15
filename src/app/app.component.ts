@@ -3,6 +3,8 @@ import { Component, ViewChildren, ViewChild } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
+import { HostListener } from '@angular/core';
+
 import { PieceType, Piece, sortedBySize, PIECE_SIZES } from './piece';
 
 import { PieceLayoutComponent } from './piece-layout/piece-layout.component';
@@ -131,9 +133,17 @@ export class AppComponent {
         this.pieces = this.pieces.filter((piece) => {
             return !selected.includes(piece);
         });
+        this.pieceLayoutComponent.selectNone();
     }
 
     onRemoveAll() {
         this.pieces = [];
+    }
+
+    @HostListener('document:keydown', ['$event'])
+    onKey(event: KeyboardEvent) {
+        if (event.key === 'Delete') {
+            this.onRemoveSelected();
+        }
     }
 }
