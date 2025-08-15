@@ -161,6 +161,7 @@ export class AppComponent {
 
     onRemoveAll() {
         this.pieces = [];
+        this.onSelectNone();
     }
 
     @HostListener('document:keydown', ['$event'])
