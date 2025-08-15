@@ -18,6 +18,26 @@ const PIECE_TYPES = [
     PieceType.Insert,
 ];
 
+function getSameType(pieces: Piece[]): PieceType|null {
+    if (pieces.length === 0) {
+        return null;
+    }
+    if (pieces.every(piece => piece.type === pieces[0].type)) {
+        return pieces[0].type;
+    }
+    return null;
+}
+
+function getSameSize(pieces: Piece[]): string|null {
+    if (pieces.length === 0) {
+        return null;
+    }
+    if (pieces.every(piece => piece.size === pieces[0].size)) {
+        return pieces[0].size;
+    }
+    return null;
+}
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -52,8 +72,8 @@ export class AppComponent {
     sizes = PIECE_SIZES;
     types = PIECE_TYPES;
 
-    currentSize: string = '';
-    currentType: PieceType;
+    currentSize: string|null = null;
+    currentType: PieceType|null = null;
 
     onLoad(input: any)
     {
@@ -152,5 +172,11 @@ export class AppComponent {
         }
         event.stopPropagation();
         event.preventDefault();
+    }
+
+    selectionChange() {
+        const selected = this.pieceLayoutComponent.selectedPieces;
+        this.currentSize = getSameSize(selected);
+        this.currentType = getSameType(selected);
     }
 }

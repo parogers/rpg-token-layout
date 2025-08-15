@@ -1,5 +1,5 @@
 
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, SimpleChanges, EventEmitter } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +19,9 @@ import { Piece } from '../piece';
 export class PieceLayoutComponent {
     @Input()
     pieces: Piece[] = [];
+
+    @Output()
+    selectionChange: EventEmitter<void> = new EventEmitter();
 
     lastSelectedIndex = -1;
     selected: { [index: string]: boolean } = {};
@@ -46,11 +49,15 @@ export class PieceLayoutComponent {
         this.selected = Object.fromEntries(this.pieces.map((piece, index) => {
             return [index, true];
         }));
+        this.selectionChange.emit();
     }
 
     selectNone() {
-        this.selected = {};
-        this.lastSelectedIndex = -1;
+        if (Object.keys(this.selected).length > 0) {
+            this.selected = {};
+            this.lastSelectedIndex = -1;
+            this.selectionChange.emit();
+        }
     }
 
     isSelected(piece: Piece): boolean {
@@ -80,6 +87,7 @@ export class PieceLayoutComponent {
         }
         this.lastSelectedIndex = index;
         event.stopPropagation();
+        this.selectionChange.emit();
     }
 
     onLayoutClick() {

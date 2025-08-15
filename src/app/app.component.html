@@ -19,7 +19,9 @@
             Duplicate
         </button>
 
-        <button (click)="onRemoveSelected()">Remove</button>
+        <button (click)="onRemoveSelected()" [disabled]="!hasSelection">
+            Remove
+        </button>
 
         <button (click)="onRemoveAll()">Remove all</button>
 
@@ -55,6 +57,6 @@
         </app-piece-list> -->
     </div>
 
-    <app-piece-layout [pieces]="pieces">
+    <app-piece-layout [pieces]="pieces" (selectionChange)="selectionChange()">
     </app-piece-layout>
 </main>
