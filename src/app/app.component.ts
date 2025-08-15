@@ -12,7 +12,6 @@ import { PieceLayoutComponent } from './piece-layout/piece-layout.component';
 const PIECE_TYPES = [
     PieceType.Stand,
     PieceType.Flat,
-    PieceType.Box,
     PieceType.Block,
     PieceType.Insert,
 ];

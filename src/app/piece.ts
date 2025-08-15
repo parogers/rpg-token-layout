@@ -2,7 +2,6 @@
 export enum PieceType {
     Stand='stand',
     Flat='flat',
-    Box='box',
     Block='block',
     Insert='insert',
 }

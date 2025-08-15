@@ -32,10 +32,6 @@ export class PieceComponent {
         return !!(this.piece && this.piece.type === PieceType.Block);
     }
 
-    get isBoxType(): boolean {
-        return !!(this.piece && this.piece.type === PieceType.Box);
-    }
-
     onImageLoad() {
         const maxHeight = 8*96;
         const rect = this.elementRef.nativeElement.getBoundingClientRect();

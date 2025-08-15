@@ -71,24 +71,6 @@
     --vertical-padding: 0;
 }
 
-.box-type .image-container {
-    --horizontal-padding: 0;
-    --vertical-padding: 0;
-    border-top: var(--border-style);
-    position: relative;
-
-    &::after {
-        content: '';
-        width: var(--size);
-        height: var(--size);
-        border-top: var(--border-style);
-        border-bottom: var(--border-style);
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-    }
-}
-
 .block-type .base {
     height: unset;
 
