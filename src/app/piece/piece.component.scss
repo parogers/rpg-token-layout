@@ -1,6 +1,5 @@
 
 :host {
-    display: inline-block;
     --size-small: 0.5in;
     --size-medium-minus: 0.65in;
     --size-medium: 0.8in;
@@ -11,7 +10,6 @@
 }
 
 .piece-container {
-    display: inline-block;
     width: var(--size);
     border: var(--border-style);
     break-inside: avoid;

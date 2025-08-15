@@ -1,5 +1,7 @@
 .layout {
-    // width: calc(10in - 5px);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .selected {
