@@ -33,11 +33,10 @@ export class PieceComponent {
     }
 
     onImageLoad() {
-        const maxHeight = 8*96;
-        const rect = this.elementRef.nativeElement.getBoundingClientRect();
-        if (rect.height > maxHeight) {
-            console.log('piece is too tall');
-        }
-        console.log(rect.height);
+        // const maxHeight = 8*96;
+        // const rect = this.elementRef.nativeElement.getBoundingClientRect();
+        // if (rect.height > maxHeight) {
+        //     console.log('piece is too tall');
+        // }
     }
 }

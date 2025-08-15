@@ -14,17 +14,17 @@
 
 <div
     *ngIf="piece && isInsertType"
-    class="piece-container size-{{ piece.size }}"
+    class="piece-container size-{{ piece.size }} insert-type"
 >
-    <div class="insert-base"></div>
+    <div class="base"></div>
     <div class="image-container flipped">
         <img src="{{ piece.imageURL }}" (load)="onImageLoad()">
     </div>
     <div class="image-container">
         <img src="{{ piece.imageURL }}">
     </div>
-    <div class="insert-base"></div>
-    <div class="insert-base"></div>
+    <div class="base"></div>
+    <div class="base"></div>
 </div>
 
 <div

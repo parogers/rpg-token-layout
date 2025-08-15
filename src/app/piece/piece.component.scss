@@ -47,8 +47,8 @@
     height: var(--size);
 }
 
-.insert-base {
-    height: 0.125in;
+.insert-type .base {
+    height: 0.15in;
 }
 
 .size-huge .base {
@@ -69,6 +69,11 @@
 
 .block-type .image-container {
     --vertical-padding: 0;
+}
+
+.insert-type .image-container {
+    // No fold lines near the bottom of insert pieces
+    border-bottom: none;
 }
 
 .block-type .base {
