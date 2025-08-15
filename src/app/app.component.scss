@@ -11,7 +11,8 @@ main {
     flex-shrink: 1;
     background: lightgray;
     margin-right: 1em;
-    max-width: 15em;
+    max-width: 10em;
+    padding: 0.5em;
 
     button {
         width: 100%;
@@ -26,6 +27,15 @@ main {
 .size-actions {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+
+    label {
+        display: block;
+    }
+
+    select {
+        width: 100%;
+        height: 2.5em;
+    }
 }
 
 .selection-actions {

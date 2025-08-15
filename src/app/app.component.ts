@@ -3,6 +3,8 @@ import { Component, ViewChildren, ViewChild } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 
+import { FormsModule } from '@angular/forms';
+
 import { HostListener } from '@angular/core';
 
 import { PieceType, Piece, sortedBySize, PIECE_SIZES } from './piece';
@@ -20,7 +22,7 @@ const PIECE_TYPES = [
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    imports: [CommonModule, PieceLayoutComponent],
+    imports: [CommonModule, PieceLayoutComponent, FormsModule],
 })
 export class AppComponent {
     @ViewChild(PieceLayoutComponent)
@@ -49,6 +51,9 @@ export class AppComponent {
 
     sizes = PIECE_SIZES;
     types = PIECE_TYPES;
+
+    currentSize: string = '';
+    currentType: PieceType;
 
     onLoad(input: any)
     {
@@ -93,11 +98,10 @@ export class AppComponent {
         this.pieceLayoutComponent.selectNone();
     }
 
-    onChangeSize(size: string) {
+    onChangeSize() {
         for (let piece of this.pieceLayoutComponent.selectedPieces) {
-            piece.size = size;
+            piece.size = this.currentSize;
         }
-        // this.onSelectNone();
     }
 
     get hasSelection(): boolean {
@@ -121,9 +125,9 @@ export class AppComponent {
         }
     }
 
-    onChangeType(type: PieceType) {
+    onChangeType() {
         for (let piece of this.pieceLayoutComponent.selectedPieces) {
-            piece.type = type;
+            piece.type = this.currentType;
         }
     }
 
@@ -146,5 +150,7 @@ export class AppComponent {
         } else if (event.key == 'a' && event.ctrlKey) {
             this.onSelectAll();
         }
+        event.stopPropagation();
+        event.preventDefault();
     }
 }

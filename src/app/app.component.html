@@ -10,26 +10,6 @@
             <button (click)="onSelectNone()">None</button>
         </div>
 
-        <div class="size-actions">
-            <button
-                *ngFor="let size of sizes"
-                (click)="onChangeSize(size)"
-                [disabled]="!hasSelection"
-            >
-                {{ size }}
-            </button>
-        </div>
-
-        <div class="size-actions">
-            <button
-                *ngFor="let type of types"
-                (click)="onChangeType(type)"
-                [disabled]="!hasSelection"
-            >
-                {{ type }}
-            </button>
-        </div>
-
         <button (click)="onReorder()">Reorder</button>
 
         <button
@@ -42,6 +22,34 @@
         <button (click)="onRemoveSelected()">Remove</button>
 
         <button (click)="onRemoveAll()">Remove all</button>
+
+        <div class="size-actions">
+            <label for="size">Size</label>
+            <select
+                id="size"
+                [(ngModel)]="currentSize"
+                (change)="onChangeSize()"
+                [disabled]="!hasSelection"
+            >
+                <option *ngFor="let size of sizes" [value]="size">
+                    {{ size }}
+                </option>
+            </select>
+        </div>
+
+        <div class="size-actions">
+            <label for="type">Type</label>
+            <select
+                id="type"
+                [(ngModel)]="currentType"
+                (change)="onChangeType()"
+                [disabled]="!hasSelection"
+            >
+                <option *ngFor="let type of types" [value]="type">
+                    {{ type }}
+                </option>
+            </select>
+        </div>
 
         <!-- <app-piece-list [pieces]="pieces">
         </app-piece-list> -->
