@@ -176,6 +176,8 @@ export class AppComponent {
             this.onRemoveSelected();
         } else if (event.key == 'a' && event.ctrlKey) {
             this.onSelectAll();
+        } else {
+            return;
         }
         event.stopPropagation();
         event.preventDefault();
