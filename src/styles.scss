@@ -25,3 +25,9 @@ body {
         display: block;
     }
 }
+
+@page {
+    // Most of the time this is what you want - most cardstock will be stiffer
+    // in the long direction and more flexible along the shorter.
+    size: letter landscape;
+}
