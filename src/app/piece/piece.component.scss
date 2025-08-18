@@ -1,14 +1,4 @@
 
-:host {
-    --size-small: 0.5in;
-    --size-medium-minus: 0.65in;
-    --size-medium: 0.8in;
-    --size-medium-plus: 1in;
-    --size-large: 1.75in;
-    --size-large-plus: 2in;
-    --size-huge: 2.75in;
-}
-
 .piece-container {
     width: var(--size);
     border: var(--border-style);
@@ -63,8 +53,8 @@
 }
 
 .flat-type .image-container {
-    --horizontal-padding: 0.1in;
-    --vertical-padding: 0.1in;
+    --vertical-padding: calc(var(--size) * 0.04);
+    --horizontal-padding: calc(var(--size) * 0.04);
 }
 
 .block-type .image-container {

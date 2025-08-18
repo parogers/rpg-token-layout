@@ -1,4 +1,6 @@
 
+import memoize from 'micro-memoize';
+
 import { Component, ViewChildren, ViewChild } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -17,6 +19,8 @@ const PIECE_TYPES = [
     PieceType.Block,
     PieceType.Insert,
 ];
+
+const DEFAULT_SIZE = 'medium';
 
 function getSameType(pieces: Piece[]): PieceType|null {
     if (pieces.length === 0) {
@@ -37,6 +41,16 @@ function getSameSize(pieces: Piece[]): string|null {
     }
     return null;
 }
+
+function getSizeDesc(size: string): string {
+    if (!size) {
+        return '';
+    }
+    return getComputedStyle(document.body).getPropertyValue('--size-' + size);
+}
+
+const getSizeDescCached = memoize(getSizeDesc);
+
 
 @Component({
     selector: 'app-root',
@@ -75,6 +89,10 @@ export class AppComponent {
     currentSize: string|null = null;
     currentType: PieceType|null = null;
 
+    get currentSizeDesc(): string {
+        return getSizeDescCached(this.currentSize);
+    }
+
     onLoad(input: any)
     {
         function getDefaultType(file: File): PieceType {
@@ -91,7 +109,7 @@ export class AppComponent {
                     return size;
                 }
             }
-            return 'medium';
+            return DEFAULT_SIZE;
         }
 
         const files = <File[]>input.files;
