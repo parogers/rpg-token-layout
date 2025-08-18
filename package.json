@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /rpg-token-layout/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
