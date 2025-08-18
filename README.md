@@ -10,9 +10,12 @@ A simple tool to layout and print paper tokens for table-top RPG games. You can 
 
 ## Running
 
-I'll host it somewhere at some point, but for now clone the repo, run "npm ci" and then:
+You can access the [online version](https://parogers.github.io/rpg-token-layout/). Or if you'd like to run it locally:
 
-```
+```bash
+git clone https://github.com/parogers/rpg-token-layout
+cd rpg-token-layout
+npm ci
 npm run serve
 ```
 
